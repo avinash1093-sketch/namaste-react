@@ -17,3 +17,22 @@
 - HTTPs
 - Tree Shaking - remove unused code for you
 - Different dev and prod bundles
+
+# Food City
+
+/**
+ * Header
+ *  - Logo
+ *  - Menu/Nav Items
+ * Body
+ *  - Search
+ *  - Restauranr cintainer
+ *    - Restraurant card
+ *     - Image
+ *     Name of Res, Stars, Cuisine
+ * Footer
+ *  - Cpoyright
+ *  - Links
+ *  - Address
+ *  - Contact Information
+ */

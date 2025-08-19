@@ -105,6 +105,29 @@
   font-weight: 400;
 }
 
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #005fa3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
 /* Footer (if you add one) */
 .footer {
   background: #fff;
@@ -114,3 +137,4 @@
   font-size: 0.95rem;
   border-top: 1px solid #eee;
 }
+

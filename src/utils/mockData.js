@@ -1,4 +1,4 @@
-[
+export const resList = [
   {
     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
     "info": {
@@ -12,10 +12,10 @@
         "Ice Cream",
         "Desserts"
       ],
-      "avgRating": 4.7,
+      "avgRating": 3,
       "veg": true,
       "parentId": "6249",
-      "avgRatingString": "4.7",
+      "avgRatingString": "3",
       "totalRatingsString": "14K+",
       "sla": {
         "deliveryTime": 24,
@@ -1460,4 +1460,4 @@
     },
     "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
   }
-]
+];
