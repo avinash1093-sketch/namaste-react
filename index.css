@@ -51,13 +51,45 @@
 
 /* Search bar */
 .search {
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f7fa;
   padding: 12px 20px;
-  background: #e9ecef;
   border-radius: 8px;
-  font-size: 1.1rem;
-  color: #555;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin-right: 18px;
+}
+
+.search-box {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 180px;
+}
+
+.search-box:focus {
+  border-color: #0078d4;
+}
+
+.search button {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search button:hover {
+  background-color: #005fa3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 /* Restaurant container */
@@ -136,5 +168,60 @@
   color: #888;
   font-size: 0.95rem;
   border-top: 1px solid #eee;
+}
+
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.shimmer-card {
+  width: 260px;
+  height: 180px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.login {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 18px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.login:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 

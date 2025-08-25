@@ -1,14 +1,57 @@
-import { useState } from "react";
-import { resList } from "../utils/mockData";
+import { useEffect, useState } from "react";
 import RestraurantCard from "./RestraurantCard";
+import Shimmer from "./Shimmer";
+import { RES_LIST_API_URL } from "../utils/constants";
 
 const Body = () => {
-  const [listOfRes, setListOfRes] = useState(resList);
-  return (
+  const [listOfRes, setListOfRes] = useState([]);
+  const [filteredRes, setFilteredRes] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(RES_LIST_API_URL);
+    const jsonData = await data.json();
+    setListOfRes(
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+    setFilteredRes(
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
+
+  return listOfRes.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="body">
-        <div className="search">Search</div>
         <div className="filter">
+          <div className="search">
+            <input
+              type="text"
+              className="search-box"
+              name="search"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            ></input>
+            <button
+              onClick={() => {
+                // filter the res card and update the UI
+                const filterRes = listOfRes.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setFilteredRes(filterRes);
+              }}
+            >
+              Search
+            </button>
+          </div>
           <button
             className="filter-btn"
             onClick={() => {
@@ -23,7 +66,7 @@ const Body = () => {
           </button>
         </div>
         <div className="res-container">
-          {listOfRes.map((restruarant) => (
+          {filteredRes.map((restruarant) => (
             <RestraurantCard resData={restruarant} key={restruarant.info.id} />
           ))}
         </div>
