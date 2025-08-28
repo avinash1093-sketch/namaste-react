@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import RestraurantCard from "./RestraurantCard";
 import Shimmer from "./Shimmer";
 import { RES_LIST_API_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
@@ -67,7 +68,12 @@ const Body = () => {
         </div>
         <div className="res-container">
           {filteredRes.map((restruarant) => (
-            <RestraurantCard resData={restruarant} key={restruarant.info.id} />
+            <Link
+              to={`/restaurants/${restruarant.info.id}`}
+              key={restruarant.info.id}
+            >
+              <RestraurantCard resData={restruarant} />
+            </Link>
           ))}
         </div>
       </div>
